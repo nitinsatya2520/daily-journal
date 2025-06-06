@@ -1,0 +1,416 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f2f7ff;
+  color: #222;
+}
+
+.header {
+  background: linear-gradient(to right, #0052cc, #007bff);
+  color: white;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.logout-btn,
+.btn-profile {
+  background: #e91e63;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-profile {
+  background: #4caf50;
+}
+
+.logout-btn:hover,
+.btn-profile:hover {
+  opacity: 0.9;
+}
+
+.entry-form {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.entry-form input,
+.entry-form textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.entry-form button {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.entry-form button:hover {
+  background: #0056b3;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.entries-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.entry-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.entry-title {
+  font-weight: bold;
+}
+
+.entry-body {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.entry-actions a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  transition: color 0.2s ease-in-out;
+}
+
+.entry-actions a:hover {
+  color: #0056b3;
+}
+
+/* Fade-in and pop-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+/* Fade-in and pop-up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Main card styling */
+.entry-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.5s ease-in-out both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover lift effect */
+.entry-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth hover effect on buttons and links */
+.entry-actions a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.entry-actions a:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Entry form button hover */
+.entry-form button:hover {
+  background: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Smooth input field focus */
+.entry-form input:focus,
+.entry-form textarea:focus,
+.search-bar:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Mobile-friendly responsive spacing */
+@media screen and (max-width: 600px) {
+  .entry-form input,
+  .entry-form textarea,
+  .entry-form button {
+    font-size: 0.9rem;
+  }
+
+  .entry-actions a {
+    font-size: 0.9rem;
+  }
+}
+/* Animated fade-in */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animated-fadein {
+  animation: fadeInScale 0.6s ease forwards;
+}
+
+/* Profile card styles */
+.profile-card {
+  max-width: 400px;
+  margin: 4rem auto;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.profile-card h2 {
+  margin-bottom: 0.2rem;
+  color: #222;
+  font-size: 1.8rem;
+}
+
+.profile-card .email {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 1.5rem;
+}
+
+.profile-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.profile-buttons {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn.warning {
+  background-color: #f0ad4e;
+}
+
+.btn.danger {
+  background-color: #d9534f;
+}
+
+.btn.back {
+  background-color: #5bc0de;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Mobile responsive */
+@media (max-width: 500px) {
+  .profile-card {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
+/* Fade-in animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-form {
+  animation: fadeSlideIn 0.5s ease-out;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Edit Form Container */
+.edit-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.edit-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.edit-container label {
+  display: block;
+  margin: 0.8rem 0 0.3rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.edit-container input,
+.edit-container textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.edit-container .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn.success {
+  background-color: #28a745;
+}
+
+.btn.secondary {
+  background-color: #6c757d;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .edit-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

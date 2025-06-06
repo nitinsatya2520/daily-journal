@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Daily Journal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='sty.css') }}" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Welcome Back 👋</h2>
+      <p>Please login to access your journal</p>
+
+      <form action="{{ url_for('login') }}" method="POST">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="example@mail.com" required />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="Your secret..." required />
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <p class="bottom-text">
+        Don’t have an account?
+        <a href="{{ url_for('register') }}">Register here</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

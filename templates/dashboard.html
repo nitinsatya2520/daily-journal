@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Journal Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="navbar">
+    <span>📝 My Daily Journal</span>
+    <a href="{{ url_for('profile') }}" class="nav-link">👤 Profile</a>
+    <form action="{{ url_for('logout') }}" method="POST" style="display:inline;">
+      <button type="submit" class="logout-btn">Logout</button>
+    </form>
+  </div>
+
+  <div class="dashboard-container">
+    <h1 class="dashboard-title">📚 Your Journal Entries</h1>
+    <a href="{{ url_for('new_entry') }}" class="btn new-entry">➕ New Entry</a>
+
+    <div class="journal-grid">
+      {% for entry in entries %}
+      <div class="journal-card">
+        <div class="card-header">
+          <h3>{{ entry.title }}</h3>
+          <span class="date">{{ entry.date }}</span>
+        </div>
+        <p class="entry-preview">{{ entry.content[:100] }}...</p>
+        <div class="card-actions">
+          <a href="{{ url_for('edit_entry', entry_id=entry.id) }}">✏️ Edit</a>
+          <a href="{{ url_for('delete_entry', entry_id=entry.id) }}">🗑️ Delete</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <a href="{{ url_for('new_entry') }}" class="fab">+</a>
+</body>
+</html>

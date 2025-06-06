@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+
+  <div class="profile-card animated-fadein">
+    <h2>👤 {{ user.name }}</h2>
+    <p class="email">📧 {{ user.email }}</p>
+
+    <div class="profile-details">
+      <p>📅 <strong>Joined:</strong> {{ user.join_date }}</p>
+      <p>📓 <strong>Total Entries:</strong> {{ user.total_entries }}</p>
+    </div>
+
+    <div class="profile-buttons">
+      <a href="{{ url_for('change_password') }}" class="btn warning">🔑 Change Password</a>
+      <a href="{{ url_for('logout') }}" class="btn danger">🚪 Logout</a>
+      <a href="/journal" class="btn back">📓 Back to Journal</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Entry</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <div class="navbar">📝 My Daily Journal</div>
+
+  <div class="edit-container animated-form">
+    <h2>Edit Journal Entry</h2>
+
+    <form method="POST">
+      <label for="title">📌 Title</label>
+      <input type="text" name="title" value="{{ title }}" required>
+
+      <label for="entry">🗒️ Entry</label>
+      <textarea name="entry" rows="5" required>{{ entry }}</textarea>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn success">💾 Update</button>
+        <a href="/journal" class="btn secondary">❌ Cancel</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

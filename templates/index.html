@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Journal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <div class="header">📖 My Daily Journal</div>
+
+  <div class="container">
+    <div class="top-actions">
+      <a href="/logout" class="logout-btn">🚪 Logout</a>
+      <a href="{{ url_for('profile') }}" class="btn-profile">👤 My Profile</a>
+    </div>
+
+    <form method="POST" action="/submit" class="entry-form">
+      <input type="text" name="title" placeholder="📌 Title" required>
+      <textarea name="entry" placeholder="📝 Write your thoughts..." rows="4" required></textarea>
+      <button type="submit">➕ Create New Entry</button>
+    </form>
+
+    <input type="text" id="searchInput" placeholder="🔍 Search entries..." class="search-bar">
+
+    <div class="entries-container">
+      {% for entry in entries %}
+        <div class="entry-card">
+          <div class="entry-header">
+            <span class="entry-title">📌 {{ entry['Title'] }}</span>
+            <span class="entry-date">🕒 {{ entry['Timestamp'] }}</span>
+          </div>
+          <div class="entry-body">{{ entry['Entry'] }}</div>
+          <div class="entry-actions">
+            <a href="{{ url_for('edit_entry', row=entry['Row']) }}" class="edit-btn">✏️ Edit</a>
+            <a href="{{ url_for('delete_entry', row=entry['Row']) }}" class="delete-btn">🗑️ Delete</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+      const searchValue = this.value.toLowerCase();
+      const cards = document.querySelectorAll('.entry-card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(searchValue) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
