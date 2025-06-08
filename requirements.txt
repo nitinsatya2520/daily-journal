@@ -3,3 +3,4 @@ gunicorn
 gspread
 oauth2client
 Werkzeug
+google-auth
