@@ -452,7 +452,8 @@ body {
 .site-footer {
   background: linear-gradient(to left, #033d94, #002145);
   
-  display: flex;
+  display:block;
+  text-align: center;
   justify-content: center;
   bottom: 0px;
   
