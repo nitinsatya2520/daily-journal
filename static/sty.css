@@ -134,3 +134,20 @@ body {
     font-size: 22px;
   }
 }
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2b003b;
+  color: white;
+  text-align: center;
+}
+.footer p {
+  margin: 0;
+  padding: 10px;
+  color: #ffffff;
+}
