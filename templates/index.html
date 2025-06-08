@@ -4,11 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Journal</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#4a90e2">
+
+  <!-- iOS Support -->
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='icon-192.png') }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/static/service-worker.js")
+        .then(reg => console.log("Service Worker registered"))
+        .catch(err => console.error("SW registration failed:", err));
+    }
+  </script>
 </head>
 <body>
 
-  <div class="header">📖 My Daily Journal</div>
+ 
+  <div class="site-header">
+  <img src="{{ url_for('static', filename='icon-192.png') }}" alt="Daily Journal Logo" class="site-logo">
+  
+</div>
+
 
   <div class="container">
     <div class="top-actions">
