@@ -449,17 +449,24 @@ body {
 
 
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.site-footer {
+  background: linear-gradient(to left, #033d94, #002145);
+  
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+  
   width: 100%;
-  background-color: #2b003b;
+  position:fixed;
   color: white;
-  text-align: center;
+  z-index: 9999;
 }
-.footer p {
-  margin: 0;
-  padding: 10px;
+
+.site-footer a {
   color: #ffffff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
 }
