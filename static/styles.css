@@ -1,9 +1,10 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 0;
+  
   padding: 0;
   background: #f2f7ff;
   color: #222;
+  margin-bottom: 50px;
 }
 
 .header {
